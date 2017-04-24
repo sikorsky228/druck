@@ -1,0 +1,853 @@
+/* 
+ * DRUCKSTUDIO - MAIN STYLESHEET
+ *
+ */
+
+
+/* GENERAL */
+/* ---------------------------------------------------------------------------- */
+* {margin:0; padding:0;}
+UL, LI {list-style:none;}
+.ds-debug {background:#aaa; padding:10px; font-size:14px; font-weight:bold; text-transform:uppercase; color:#666; position:absolute; right:25px; top:0; z-index:990; cursor:pointer; display:block;}
+.ds-debug-info {background:#f0f0f0; width:80%; height:80%; padding:30px; border:4px solid #000; box-sizing:border-box; font-size:15px; font-family:'Courier New' !important; color:#333; position:absolute; left:10%; top:10%; overflow:auto; z-index:990; display:none;}
+.ds-debug-info.active {display:block;}
+
+/* FONTS AND COLOR */
+/* ---------------------------------------------------------------------------- */
+@import url(https://fonts.googleapis.com/css?family=Karla);
+* {font-family:'PT Sans';}
+A {color:#8a8a8a; text-decoration:none;}
+A:hover, A:visited, A:focus {color:#eee; text-decoration:none;}
+BODY {color:#8a8a8a;}
+P {margin-top:10px; margin-bottom:10px;}
+
+
+/* HELPER CLASSES */
+/* ---------------------------------------------------------------------------- */
+.fleft {float:left;}
+.fright {float:right;}
+.clear {width:0; height:0; clear:both;}
+.left {text-align:left;}
+.center {text-align:center;}
+.right {text-align:right;}
+.hidden {width:0; height:0; margin:0; padding:0; border:0; overflow:hidden;}
+.upper {text-transform:uppercase;}
+.nosel {-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; outline:0 !important;}
+.pad-4 {padding:4px;}
+
+.squarebox {width:100%; height:auto; margin:0; padding:0 0 100% 0; position:relative; display:inline-block;}
+.squarebox > .squarebox-inner {width:100%; height:100%; box-sizing:border-box; position:absolute; left:0; top:0; display:block;}
+
+IMG.landscape {width:auto; height:100%;}
+IMG.portrait {width:100%; height:auto;}
+
+
+/* TEXT AND BACKGROUND COLORS */
+/* ---------------------------------------------------------------------------- */
+.text-green {color:#4a7445;}
+.text-red {color:#a83535;}
+
+
+/* ICONS AND BUTTONS */
+/* ---------------------------------------------------------------------------- */
+.ds-icon {background-position:center; background-repeat:no-repeat; display:inline-block;}
+.ds-icon-squares {background-image:url('../img/icons/squares.png'); width:26px; height:26px;}
+.ds-icon-cart {background-image:url('../img/icons/cart.png'); width:30px; height:22px;}
+.ds-icon-file {background-image:url('../img/icons/manager_file.png'); width:24px; height:24px;}
+.ds-icon-instagram {background-image:url('../img/icons/manager_instagram.png'); width:24px; height:24px;}
+.ds-icon-move {background-image:url('../img/icons/scale.png'); width:128px; height:128px;}
+
+.ds-button {background-color:#2b2b2b; background-repeat:no-repeat; background-position:left center; padding:10px; box-sizing:border-box; font-size:20px; color:#fff; cursor:pointer; display:inline-block;}
+.ds-button {-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+.ds-button-blue {background:#aec6cf; border:1px solid #aec6cf;}
+.ds-button-blue:hover {background:#6cabc3; border:1px solid #6cabc3;}
+.ds-button-save {background:#aec6cf;}
+.ds-button-reset {
+    background: #282828;
+    border: 2px solid #fff;
+    padding: 10px 0 !important;
+}
+.ds-button-cancel {background: #dea5a4;}
+.ds-button.size-medium {font-size:16px;}
+.ds-button-clear {background:transparent; border:0;}
+
+.ds-loading {background:rgba(0,0,0,0.75); width:100%; height:100%; padding:200px; box-sizing:border-box; text-align:center; position:absolute; left:0; top:0; z-index:999; display:block;}
+
+
+/* LAYOUT STRUCTURE */
+/* ---------------------------------------------------------------------------- */
+BODY {background:#2a2a2a; overflow:hidden;}
+BODY.error404 {margin:50px 0;}
+#ds-main {width:100%; height:100%; min-width:320px; overflow:hidden; display:block;}
+#ds-product {padding:0 30px 40px;}
+.ds-wrapper {width:100%; max-width:1800px; margin:0 auto; padding:0; display:block;}
+#ds-product, #ds-product * {-webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+
+
+/* HEADER */
+/* ---------------------------------------------------------------------------- */
+HEADER {background: #fff;display: block;position: fixed;width: 100%;z-index: 2;}
+HEADER .ds-wrapper {background:#fff; padding:20px 50px; font-size:0.0em; white-space:nowrap; text-align:center;}
+HEADER .row {font-size:20px; font-weight:normal; color:#636363; line-height:32px; vertical-align:middle;}
+HEADER .label {display:inline-block;}
+HEADER .ds-cell {font-size:100% !important; line-height:inherit !important; vertical-align:middle !important;}
+HEADER .ds-cell SPAN, HEADER .btn, HEADER .btn:hover, HEADER .btn .fa {font-size:100% !important; color:inherit !important; line-height:inherit !important; display:inline-block;}
+HEADER .ds-product-title .btn {font-weight:bold; cursor:default; box-shadow:none !important;}
+HEADER .ds-product-order .btn {color:#fff !important;}
+HEADER .ds-product-title {font-size:150% !important;}
+
+
+/* PRODUCT LIST */
+/* ---------------------------------------------------------------------------- */
+#ds-productlist-box {font-size:0.0em;
+    overflow: scroll;
+    height: 93%;
+    padding-left: 12px;
+    padding-right: 0px;
+    margin-left: -20px;
+}
+
+.ds-productlist .ds-entry {float:none;}
+
+.ds-productlist .ds-entry .ds-product-box {background:#303030; box-sizing:border-box; display:inline-block; border: 4px solid #fff;}
+.ds-productlist .ds-entry.filled .ds-product-box {/*background:#fff;*/ cursor:default;}
+.ds-productlist .ds-entry .ds-product-box .squarebox-inner {/*padding:4px;*/}
+.ds-productlist .ds-entry IMG {width:100%; height:100%;}
+.ds-productlist .ds-entry .ds-entry-open {width:100%; height:100%; position:absolute; left:0; top:0; z-index:5; cursor:pointer;}
+.ds-productlist .ds-entry .ds-entry-remove {cursor: pointer;background: #FF7956;; border-radius:0px; width:30px; height:30px; border-radius:50%; text-align:center; vertical-align:middle; position:absolute; right:-15px; top:-13px; z-index:1; display:none;padding-top: 5px;}
+.ds-productlist .ds-entry .ds-entry-remove img {height: 35px;width: 25px;}
+.ds-productlist .ds-entry:hover .ds-entry-remove {display:block;}
+.ds-productlist .ds-entry.ds-remove-mark .ds-entry-remove {background:#863737; display:block;}
+
+.ds-product-choice {text-align:center;}
+.ds-product-choice #ds-main {padding:100px;}
+.ds-product-choice .ds-product-overview {width:1225px; margin:0 auto; text-align:center; overflow:hidden;}
+.ds-product-choice .ds-product-overview li {width:300px; margin:0 25px 25px 0; display:inline-block;}
+.ds-product-choice .ds-product-overview a {background:#202020; border:2px solid #202020; width:100%; padding:0; box-sizing:border-box;  text-transform:uppercase; text-decoration:none; display:block;}
+.ds-product-choice .ds-product-overview a h3 {font-size:18px; font-weight:normal; color:#999; line-height:50px;}
+.ds-product-choice .ds-product-overview a:hover h3 {color:#ccc;}
+
+.ds-productlist .ds-entry{
+    width:20%;
+}
+/*
+.ds-productlist {
+    list-style-position: inside;
+    -moz-column-count:2;
+    -webkit-column-count:2; 
+    column-count:2;
+    list-style-type:decimal;
+    height:1200px;
+}
+*/
+.ds-productlist{
+    position: relative;
+    margin-left:8px;
+}
+
+.ds-productlist li{
+  position: absolute;
+}
+.ds-productlist li:nth-of-type(1){
+    left:0;
+    top:0;
+}
+.ds-productlist li:nth-of-type(2){
+    left:0;
+    top: 12.5vw;
+}
+
+.ds-productlist li:nth-of-type(3){
+    left:0;
+    top:25vw;
+}
+
+.ds-productlist li:nth-of-type(4){
+    left:0;
+    top:37.5vw;
+}
+
+.ds-productlist li:nth-of-type(5){
+    left:15vw;
+    top:0;
+}
+
+.ds-productlist li:nth-of-type(6){
+    left:15vw;
+    top: 12.5vw;
+}
+
+.ds-productlist li:nth-of-type(7){
+    left:15vw;
+    top:25vw;
+}
+
+.ds-productlist li:nth-of-type(8){
+    left:15vw;
+    top:37.5vw;
+}
+
+.ds-productlist li:nth-of-type(9){
+    left:30vw;
+    top:0;
+}
+
+.ds-productlist li:nth-of-type(10){
+    left:30vw;
+    top: 12.5vw;
+}
+
+.ds-productlist li:nth-of-type(11){
+    left:30vw;
+    top:25vw;
+}
+
+.ds-productlist li:nth-of-type(12){
+    left:30vw;
+    top:37.5vw;
+}
+
+.ds-productlist li:nth-of-type(13){
+    left:45vw;
+    top:0;
+}
+
+.ds-productlist li:nth-of-type(14){
+    left:45vw;
+    top: 12.5vw;
+}
+
+.ds-productlist li:nth-of-type(15){
+    left:45vw;
+    top:25vw;
+}
+
+.ds-productlist li:nth-of-type(16){
+    left:45vw;
+    top:37.5vw;
+}
+
+/*Second field*/
+
+.ds-productlist li:nth-of-type(17){
+    left:0;
+    top:52vw;
+}
+
+.ds-productlist li:nth-of-type(18){
+    left:0;
+    top:64.5vw;
+}
+
+.ds-productlist li:nth-of-type(19){
+    left:0;
+    top:77vw;
+}
+
+.ds-productlist li:nth-of-type(20){
+    left:0;
+    top:89vw;
+}
+
+.ds-productlist li:nth-of-type(21){
+    left:15vw;
+    top:52vw;
+}
+
+.ds-productlist li:nth-of-type(22){
+    left:15vw;
+    top:64.5vw;
+}
+
+.ds-productlist li:nth-of-type(23){
+    left:15vw;
+    top:77vw;
+}
+
+.ds-productlist li:nth-of-type(24){
+    left:15vw;
+    top:89vw;
+}
+
+.ds-productlist li:nth-of-type(25){
+    left:30vw;
+    top:52vw;
+}
+
+.ds-productlist li:nth-of-type(26){
+    left:30vw;
+    top:64.5vw;
+}
+
+.ds-productlist li:nth-of-type(27){
+    left:30vw;
+    top:77vw;
+}
+
+.ds-productlist li:nth-of-type(28){
+    left:30vw;
+    top:89vw;
+}
+
+.ds-productlist li:nth-of-type(29){
+    left:45vw;
+    top:52vw;
+}
+
+.ds-productlist li:nth-of-type(30){
+    left:45vw;
+    top:64.5vw;
+}
+
+.ds-productlist li:nth-of-type(31){
+    left:45vw;
+    top:77vw;
+}
+
+.ds-productlist li:nth-of-type(32){
+    left:45vw;
+    top:89vw;
+    padding-bottom: 30px;
+}
+/*hack*/
+.ds-productlist li:nth-of-type(33){
+	display: none!important;
+
+}
+/* MANAGER */
+/* ---------------------------------------------------------------------------- */
+.message-wrap{
+    font-size: 1rem;
+    position: relative;
+    padding-top:20px;
+    margin-bottom:20px;
+    min-height:80px;
+}
+.message-wrap .open-message{
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.message-wrap .close-message{
+    position: absolute;
+    top: -1px;
+    right: 3px;
+    color:#fff;
+    cursor: pointer;
+}
+.message-wrap .message-block{
+    position: relative;
+    padding:5px 50px;
+    border:2px solid #0097a7;
+    width:90%;
+}
+
+.ds-manager {background:#191919; border:2px solid #303030; box-sizing:border-box; overflow:hidden;}
+.ds-manager-content {padding:20px 15px 10px; display:none;overflow: hidden;}
+.ds-manager-tabs {font-size:0.0em; white-space:nowrap;}
+.ds-manager-tabs LI {background:#272727; width:34%; height:60px; padding:0 5px; box-sizing:border-box; font-size:14px; font-weight:bold; color:#636363; line-height:60px; text-align:center; vertical-align:middle; cursor:pointer; overflow:hidden; display:inline-block;}
+.ds-manager-tabs LI.active {background:#191919; color:#ccc;}
+.ds-manager-tabs LI A {width:100%; height:100%; color:#636363; display:block;}
+.ds-manager-tabs LI.active A {color:#ccc;}
+.ds-manager-tabs .ds-icon {margin:0 5px 1px 0; vertical-align:middle;}
+
+.ds-file-uploadbox {border: 2px dashed #636363; margin:0 0 20px 0; padding:20px 25px; font-size:14px; color:#b1b1b1; line-height:16px; text-align:center; cursor:pointer;}
+.ds-file-uploadbox H3 {margin:0; font-size:30px;}
+.ds-file-uploadbox SPAN {margin:8px auto 0;}
+.ds-file-actionbar {width:0; height:0; margin:0; overflow:hidden;}
+.ds-file-actionbar.active {width:auto; height:auto; margin:0 0 10px;}
+.ds-file-actionbar .ds-inner {width:auto; font-size:0.0em;}
+.ds-file-actionbar .ds-button {width:auto; margin:0 4px 4px 0; font-size:13px; font-weight:bold; color:#b1b1b1; text-align:center; display:block;}
+.ds-file-actionbar .ds-file-select-all {background:#404040; border:1px dashed #191919;}
+.ds-file-actionbar .ds-file-select-none {background:#303030; border:1px dashed #191919;}
+.ds-file-actionbar .ds-file-add {background:#207024; border:1px dashed #191919;}
+.ds-file-actionbar .ds-file-remove {background:#702026; border:1px dashed #191919;}
+.ds-file-actionbar .ds-button:hover {color:#ccc;}
+.ds-file-select-action {display:none;}
+.ds-file-list {overflow:hidden;}
+.ds-file-list > UL {width:auto; font-size:0.0em;}
+.ds-file-list > UL > LI {    padding: 4px;font-size: 14px;}
+.ds-file-list > UL > LI .ds-file-box {background:#222; border:3px solid #222; width:100%; padding-bottom:100%; box-sizing:border-box; overflow:hidden; cursor:pointer; position:relative; display:block;}
+.ds-file-list > UL > LI.selected .ds-file-box {border:3px solid #66cc77;}
+.ds-file-list > UL > LI .squarebox-inner {padding:1px;}
+.ds-file-list > UL > LI IMG {width:100% !important; height:100% !important;}
+.ds-uploading {background:rgba(100,100,100,0.6); width:100%; font-size:24px; color:#999; line-height:94px; text-align:center; vertical-align:middle; overflow:hidden; position:absolute; left:0; top:0; z-index:10; display:block;}
+
+.ds-instagram-infobox {background:#303030; margin:0 0 5px; padding:28px 20px; font-size:13px; color:#ccc; line-height:18px; text-align:center; cursor:pointer;}
+.ds-instagram-infobox H3 {font-size:16px; margin:0 0 12px 0;}
+.ds-instagram-infobox SPAN {font-size:11px; margin:8px 0 0 0; display:block;}
+.ds-instagram-list {overflow:hidden;}
+.ds-instagram-list > UL {width:auto; font-size:0.0em;}
+.ds-instagram-list > UL > LI {    padding: 4px;font-size: 14px;}
+.ds-instagram-list > UL > LI .ds-file-box {background:#222; border:3px solid #222; width:100%; padding-bottom:100%; box-sizing:border-box; overflow:hidden; cursor:pointer; position:relative; display:block;}
+.ds-instagram-list > UL > LI.selected .ds-file-box {border:3px solid #66cc77;}
+.ds-instagram-list > UL > LI .squarebox-inner {padding:1px;}
+.ds-instagram-list > UL > LI IMG {width:100% !important; height:100% !important;}
+
+
+/* MATERIAL LIGHTBOX */
+/* ---------------------------------------------------------------------------- */
+.ds-lightbox {background:rgba(0,0,0,0.6); width:100%; height:100%; position:absolute; left:0; top:0; z-index:100; overflow:auto;}
+.ds-lightbox .ds-inner {padding:25px; text-align:center;}
+.ds-lightbox .ds-lightbox-exit {width:100%; height:100%; position:absolute; left:0; top:0; z-index:100;}
+.ds-lightbox .ds-lightbox-content {background:#1b1b1b; width:100%; max-width:464px; margin:0 auto; padding:25px; border:1px solid #303030; box-sizing:border-box; position:relative; z-index:110; display:inline-block;}
+
+.ds-lightbox-cropbox {width: 410px; height:410px;padding: 0; margin:0 auto; border:5px solid #fff; box-sizing:border-box; overflow:hidden; position:relative;}
+.ds-lightbox-cropbox IMG {position:absolute; left:0; top:0; cursor:pointer;}
+.ds-lightbox-cropbox IMG.portrait {width:auto; height:auto; min-width:100%;}
+.ds-lightbox-cropbox IMG.landscape {width:auto; height:auto; min-height:100%;}
+.ds-lightbox-cropbox .ds-icon-move {background-color:rgba(255,255,255,0.3); width:100%; height:100%; position:absolute; left:0; top:0; display:block;}
+.ds-lightbox-cropbox:hover .ds-icon-move {display:none;}
+
+.ds-lightbox-zoom {margin:30px 0 30px; font-size:16px;color: #515151;}
+
+.ds-lightbox-settings {margin:20px auto 0; text-align:center;}
+.ds-setting-list LI {margin:0 20px 10px 0; display:inline-block;}
+.ds-setting-list LI:last-child {margin:0;}
+.ds-setting-list LI .ds-caption {margin:0 0 6px; font-size:15px; font-weight:bold; color:#4d4d4d; line-height:25px; display:block;}
+
+.ds-lightbox-action {margin:20px auto 0;}
+
+.ds-lightbox-action .ds-button {
+    padding: 12px 0;
+    font-size: 15px;
+    font-weight: normal;
+    color: #fff;
+    width: 33.3%;
+    text-align: center;
+    height: 47px;
+}
+.ds-lightbox-action .ds-button.fright {margin:0;}
+
+.ds-img-loading {background:rgba(0,0,0,0.75); width:100%; height:100%; text-align:center; vertical-align:middle; line-height:620px; position:absolute; left:0; top:0; display:block;}
+.ds-img-loading .loader {font-size:50px; text-align:center; vertical-align:middle; line-height:620px;}
+
+
+/* PRODUCT SAVING */
+/* ---------------------------------------------------------------------------- */
+.ds-product-savebox .ds-msgbox {max-width:750px;}
+.ds-product-savebox .ds-buttonbar .ds-button {margin:5px;}
+.ds-product-savebox h4 {margin:20px auto 10px; display:block;}
+
+
+/* PRODUCT MANAGEMENT */
+/* ---------------------------------------------------------------------------- */
+.ds-product-management #ds-main {padding:50px;}
+.ds-product-management .ds-content {max-width:1200px; margin:0 auto; text-align:center;}
+.ds-product-management h1 {margin:0 auto 32px; font-size:32px; font-weight:normal; color:#fff; line-height:50px; letter-spacing:2px;}
+#ds-content {
+    margin-top: 87px;
+}
+.ds-product-management .btn {background:transparent; color:#999 !important;}
+.ds-product-management tr:hover {background:#303030 !important;}
+.ds-product-management tr:first-child:hover {background:transparent !important;}
+.ds-product-management tr td, .ds-product-management tr th {border:0 !important; color:#999; vertical-align:middle !important;}
+.ds-product-management tr th {color:#ccc;}
+.ds-product-management tr {border-bottom:1px solid #444 !important; cursor:default;}
+.ds-product-management tr:last-child {border-bottom:0 !important;}
+.ds-product-management tr:first-child {border-bottom:2px solid #555 !important;}
+.ds-product-management .col-1 {width:5%;}
+.ds-product-management .col-2 {width:20%;}
+.ds-product-management .col-3 {width:20%;}
+.ds-product-management .col-4 {width:20%;}
+.ds-product-management .col-5 {width:10%;}
+.ds-product-management .col-6 {width:10%;}
+.ds-product-management .col-7 {width:10%;}
+
+
+/* FORM ELEMENTS */
+/* ---------------------------------------------------------------------------- */
+.ds-form-radiobox {background:#1b1b1b; border:1px solid #fff; display:inline-block;}
+.ds-form-radio {background:#1b1b1b; min-width:50px; font-size:14px; color:#606060; line-height:30px; text-align:center; cursor:pointer; display:inline-block;}
+.ds-form-radio.active {background:#fff;}
+
+
+/* UI ELEMENTS */
+/* ---------------------------------------------------------------------------- */
+.ds-msg {padding: 1.0em !important; font-size:14px; color:#333; line-height:20px; display:block;}
+.ds-info {margin:10px 0; padding:10px 14px; line-height:16px; display:none;}
+.ds-info.active {display:block;}
+.ds-info {font-size:14px; color:#ccc; text-transform:uppercase;}
+.ds-error {background:#c03030; border:1px dashed #633;}
+.ds-error .fa {margin:0 6px 0 0; font-size:inherit; line-height:inherit;}
+
+.ds-msgbox {background:#fff; border:1px solid #333; margin:5px auto; padding:15px; display:inline-block;}
+.ds-msgbox h3 {background:#aaa; margin:0 auto 10px; padding:10px; font-size:20px; font-weight:normal; color:#fff; line-height:24px; text-transform:uppercase;}
+.ds-msgbox.success h3 {background:#60f055;}
+.ds-msgbox.error h3 {background:#e0605c;}
+.ds-msgbox .ds-text {padding:20px; font-size:16px; color:#666; line-height:20px; display:block;}
+
+.ds-error-box {padding:25px;}
+.ds-error-box .btn {margin:5px 0 0;}
+.mainSite_button {
+    background: #fff !important;
+    border: 2px solid #444444 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 18px 0 !important;
+    float: left !important;
+    outline: 0!important !important;
+    margin: 0 !important;
+    text-shadow: none !important;
+    font-size: 12px !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
+    line-height: 20px !important;
+    -webkit-backface-visibility: hidden !important;
+    color: #444444 !important;
+    font-family: 'Karla', sans-serif;
+    width: 100% !important;
+}
+.mainSite_button:hover {
+    border-color: #DEA5A4 !important;
+    color: #DEA5A4 !important;
+}
+.ds-file-actionbar .col-xs-6, #ds-file-form .col-xs-12{
+    padding: 0 4px;
+}
+.arrow-up {
+    position: absolute;
+    top: 15px;
+    display: none;
+}
+
+.arrow-down {
+    position: absolute;
+    bottom: 15px;
+    display: none;
+}
+.count-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 4px 10px;
+    background-color: #66cc77;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 24px;
+}
+.arr {
+    padding: 1.2em;
+    box-shadow: 4px 4px 0 0px #66cc77 inset;
+}
+.arr.arrow-up {
+    transform: rotate(45deg);
+}
+.arr.arrow-down {
+    transform: rotate(226deg);
+}
+.edit-image {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    display: none;
+    z-index: 11;
+    cursor: pointer;
+}
+.warning-image {
+    position: absolute;
+    top: -18px;
+    left: -18px;
+    width: 50px;
+    height: 40px;
+    z-index: 1;
+}
+.resizer-warning-image {
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    z-index: 1;
+    margin-top: -32px;
+    margin-left: 40%;
+    display: none;
+}
+.squarebox-inner:hover .edit-image,.squarebox-inner:hover .arrow-up, .squarebox-inner:hover .arrow-down {
+    display: block;
+}
+.squarebox-inner:hover .count-number{
+    background-color: transparent;
+    color: #66cc77;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+.squarebox-bg {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+.squarebox-inner:hover .squarebox-bg{
+    opacity: .4;
+}
+.ds-file-box .squarebox-inner:hover{
+    border: 3px solid #66cc77;
+}
+.ds-file-box-border{
+    border: 3px solid #66cc77;
+}
+.ui-slider .ui-slider-handle {
+    width: 13px;
+    height: 13px;
+}
+.ui-slider-horizontal {
+    height: 4px;
+}
+.ui-widget-content {
+    border: none;
+    color: #333;
+    background-color: #515151;
+    background-image: none;
+    margin-top: 6px;
+}
+#ds-manager-box .ds-manager{
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+/* RESPONSIVE */
+/* ---------------------------------------------------------------------------- */
+
+@media screen and (max-width: 999px) {
+    HEADER .row {font-size:16px; line-height:24px !important;}
+    .ds-manager{
+        height: auto !important;
+    }
+
+}
+
+@media screen and (max-width: 639px) {
+    HEADER .row {font-size:12px; line-height:16px !important;}
+    HEADER .btn {padding:4px;}
+    HEADER .ds-product-number {text-align:left !important;}
+    HEADER .ds-cartinfo {text-align:right !important;}
+}
+@media screen and (max-width: 1200px) {
+    #ds-manager-box{
+        float:right;
+    }
+}
+@media screen and (max-width: 992px) {
+    #ds-manager-box{
+        margin-top: 67rem;
+    }
+}
+
+/*  INCLUDE */
+/*.ds-manager-tabs LI{
+    width:50%;
+}
+.ds-manager-tabs LI:first-child{
+    width:40%;
+}*/
+
+.ds-facebook-infobox {background:#303030; margin:0 0 5px; padding:28px 20px; font-size:13px; color:#ccc; line-height:18px; text-align:center; cursor:pointer;}
+.ds-facebook-infobox H3 {font-size:16px; margin:0 0 12px 0;}
+.ds-facebook-infobox SPAN {font-size:11px; margin:8px 0 0 0; display:block;}
+.ds-facebook-list {overflow:hidden;}
+.ds-facebook-list > UL {width:auto; font-size:0.0em;}
+.ds-facebook-list > UL > LI {    padding: 4px;font-size: 14px;}
+.ds-facebook-list > UL > LI .ds-file-box {background:#222; border:3px solid #222; width:100%; padding-bottom:100%; box-sizing:border-box; overflow:hidden; cursor:pointer; position:relative; display:block;}
+.ds-facebook-list > UL > LI.selected .ds-file-box {border:3px solid #66cc77;}
+.ds-facebook-list > UL > LI .squarebox-inner {padding:1px;}
+.ds-facebook-list > UL > LI IMG {width:100% !important; height:100% !important;}
+
+.squarebox-bg-album{
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+}
+.squarebox-inner:hover .squarebox-bg-album{
+    opacity: .4;
+}
+.count-number-album {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 2px 6px;
+    background-color: #66cc77;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+}
+.title-album {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 4px 4px;
+    width:100%;
+    box-sizing: border-box;;
+    background-color: rgba(0,0,0,0.5);
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 14px;
+    text-align:center;
+}
+.ds-back-to-albums{
+    color: #ccc;
+    margin-left:5px;
+}
+
+.ds-li-text{
+    font-size:14px;
+}
+    @media screen and (max-width: 1500px) {
+        .ds-li-text{
+            font-size:12px;
+        }
+    }
+    @media screen and (max-width: 1350px) {
+        .ds-li-text{
+            font-size:8px;
+        }
+    }
+    @media screen and (max-width: 1200px) {
+        .ds-li-text{
+            text-indent:-999em;
+        }
+    }
+    @media screen and (max-width: 999px) {
+        .ds-li-text{
+            text-indent:0;
+            font-size:14px;
+        }
+    }
+    @media screen and (max-width: 639px) {
+        .ds-li-text{
+            opacity:0;
+        }
+    }
+
+.fa-wrench{
+    font-size: 48px;
+    color: #FFFFFF;
+    margin:10px;
+    transform: none;
+}
+.fa-times{
+    font-size: 20px;
+    color: #000000;
+    transform: none;
+}
+.ds-productlist .squarebox{
+	padding: 0 0 100%;
+}
+
+.ds-lightbox-cropbox-vintage-h{
+    width: 420px;
+    height: 420px;
+}
+
+.ds-lightbox-cropbox-vintage-v{
+    width: 280px;
+    height: 420px;
+}
+
+.ui-sortable-placeholder{
+    visibility: visible!important;
+}
+
+/*New uploader form*/
+#ds-manager-box{
+    position: fixed;
+    right: 3rem;
+    top:4.5rem;
+    height:100%;
+}
+.tab-content{
+    height:97%;
+}
+
+.ds-manager-tabs{
+    position: fixed;
+    right:0;
+    top: 5.5rem;
+    background-color: #1d2024;
+    height:100%;
+}
+.ds-file-uploadbox{
+	border: 2px dashed #cccaca;
+	color:#cccaca;
+}
+.ds-manager-tabs LI{
+    display: block;
+    width:100%;
+    width:65px;
+    height:65px;
+    background-color: #1d2024;
+}
+
+.ds-manager-tabs LI.active{
+	background: #88d0d2;
+}
+
+.ds-manager-tabs .ds-icon{
+	margin: 17px auto;
+    color: #fff;
+}
+
+.ds-button-blue:hover{
+	background: #88D0D2;
+    border: 1px solid #fff;
+}
+
+.ds-manager-box .ds-button-blue{
+	text-transform: uppercase;
+}
+
+#ds-manager-box .ds-button-blue SPAN{
+	margin: 5px auto;
+	font-size: 18px;
+    color: #fff;
+}
+
+#ds-manager-box .ds-button-blue{
+    background: #88D0D2;
+    border: none;
+ }
+.ds-file-uploadbox p{
+text-align: center;
+margin-top: 0;
+margin-bottom: 40px;
+}
+
+.ds-manager-tab i{
+	margin:17px 0;
+	color:#fff;
+}
+
+.ds-manager-tabs LI.ds-facebook i{
+	font-size: auto;
+}
+
+.ds-instagram .ds-button-blue,
+.ds-facebook .ds-button-blue{
+	margin: 100px auto 0;
+    display: block;
+    width: 230px;
+}
+.ds-manager-tabs li{
+    position: relative;
+}
+.ds-manager-tabs .counter-block{
+    position: absolute;
+    top:10px;
+    right:10px;
+    width:20px;
+    height:20px;
+    background-color: #ff005d;
+    border-radius: 50%;
+    color:#fff;
+    line-height: 20px;
+    display: none;
+}
